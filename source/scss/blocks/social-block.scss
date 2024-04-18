@@ -5,6 +5,17 @@
     .social-block__list {
       opacity: 1;
       pointer-events: auto;
+
+      li {
+        opacity: 1;
+        transform: translateY(0);
+
+        @for $i from 1 through 3 {
+          &:nth-child(#{$i}) {
+            transition-delay: #{$td-default * $i};
+          }
+        }
+      }
     }
   }
 }
@@ -17,6 +28,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: color $td-default;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +47,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: width $td-default, height $td-default;
   }
 
   svg {
@@ -89,6 +102,7 @@
   margin-top: 1.5rem;
   opacity: 0;
   pointer-events: none;
+  transition: opacity $td-default $td-default;
 
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
@@ -145,6 +159,9 @@
   li {
     flex: none;
     margin-bottom: 0.5rem;
+    opacity: 0;
+    transform: translateY(3rem);
+    transition: opacity $td-default, transform $td-default;
 
     @media (min-width: $stop-scaling) {
       margin-bottom: 5px;
@@ -168,6 +185,7 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transition: all $td-default;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
