@@ -47,11 +47,9 @@
   transform-origin: right;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
-  @at-root {
-    .active & {
-      opacity: 1;
-      transform: scaleX(1);
-    }
+  .active & {
+    opacity: 1;
+    transform: scaleX(1);
   }
 
   &:focus {

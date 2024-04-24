@@ -99,7 +99,7 @@
   opacity: 0;
   transform: translateX(3rem);
   transition: transform 0.5s, opacity 0.6s;
-  transition-delay: $td-default;
+  transition-delay: $fast-tr-delay;
 
   .active .swiper-slide-active &,
   .active .swiper-slide-next & {
