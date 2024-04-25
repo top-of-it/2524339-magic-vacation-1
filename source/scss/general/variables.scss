@@ -20,4 +20,12 @@ $retina-dppx: 1.5dppx;
 
 $index: 1.38871;
 
-$td-default: 0.1s;
+$fast-tr-duration: 0.1s;
+$fast-tr-delay: 0.1s;
+$medium-tr-duration: 0.3s;
+$medium-tr-delay: 0.3s;
+$slow-tr-duration: 0.5s;
+$slow-tr-delay: 0.5s;
+
+$loaded-content-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+$stretch-cb-function: cubic-bezier(0.65, 1.3, 0.46, 1.47);

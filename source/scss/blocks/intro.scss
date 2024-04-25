@@ -97,13 +97,11 @@
   opacity: 0;
   transform: translateY(3rem);
   transition: transform 0.5s, opacity 1s;
-  transition-delay: $td-default;
+  transition-delay: 0.8s;
 
-  @at-root {
-    .active & {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .active & {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   @media (min-width: $stop-scaling) {
