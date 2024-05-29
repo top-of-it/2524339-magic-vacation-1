@@ -1,0 +1,20 @@
+@keyframes appearance-left {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(100%);
+  }
+}
+
+@keyframes btn-color {
+  0% {
+    color: transparent;
+  }
+
+  100% {
+    color: $c-dark;
+  }
+}
