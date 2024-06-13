@@ -1,4 +1,4 @@
-@keyframes appearance-left {
+@keyframes expand-smoothly-left {
   0% {
     opacity: 0;
     transform: scaleX(0);
@@ -9,7 +9,7 @@
   }
 }
 
-@keyframes btn-color {
+@keyframes change-color-saturation {
   0% {
     color: transparent;
   }
