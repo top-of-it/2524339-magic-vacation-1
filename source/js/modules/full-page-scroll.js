@@ -1,4 +1,5 @@
-import throttle from 'lodash/throttle';
+import throttle from "lodash/throttle";
+import AccentTypographyBuild from "../utils/text-animation";
 
 export default class FullPageScroll {
   constructor() {
@@ -30,6 +31,13 @@ export default class FullPageScroll {
         event.preventDefault();
 
         const currentHref = event.target.hash;
+        const targetScreenId = currentHref.slice(1);
+
+        if (this.screenElements[this.activeScreen].id === targetScreenId) {
+          event.target.blur();
+          return;
+        }
+
         const duration = 300;
 
         if (
@@ -80,6 +88,7 @@ export default class FullPageScroll {
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
+    this.startTypographyAnimation();
   }
 
   changeVisibilityDisplay() {
@@ -87,6 +96,7 @@ export default class FullPageScroll {
       screen.classList.add(`screen--hidden`);
       screen.classList.remove(`switched-screen`, `active`);
     });
+
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);
@@ -97,6 +107,7 @@ export default class FullPageScroll {
     const activeItem = Array.from(this.menuElements).find(
         (item) => item.dataset.href === this.screenElements[this.activeScreen].id
     );
+
     if (activeItem) {
       this.menuElements.forEach((item) => item.classList.remove(`active`));
       activeItem.classList.add(`active`);
@@ -123,6 +134,95 @@ export default class FullPageScroll {
       );
     } else {
       this.activeScreen = Math.max(0, --this.activeScreen);
+    }
+  }
+
+  createAndRunAnimation(
+      selector,
+      timer,
+      classForActivate,
+      properties,
+      hasWordDelay,
+      delay
+  ) {
+    const animation = new AccentTypographyBuild(
+        selector,
+        timer,
+        classForActivate,
+        properties,
+        hasWordDelay
+    );
+    animation.destroyAnimation();
+    setTimeout(() => {
+      animation.runAnimation();
+    }, delay);
+  }
+
+  startTypographyAnimation() {
+    const currentScreenId = this.screenElements[this.activeScreen].id;
+
+    if (currentScreenId === `top`) {
+      this.createAndRunAnimation(
+          `.intro__title`,
+          500,
+          `active-text-animation`,
+          [`transform`, `opacity`],
+          true,
+          500
+      );
+
+      this.createAndRunAnimation(
+          `.intro__date`,
+          500,
+          `active-text-animation`,
+          [`transform`, `opacity`],
+          false,
+          2000
+      );
+    }
+
+    if (currentScreenId === `story`) {
+      this.createAndRunAnimation(
+          `.slider__item-title`,
+          500,
+          `active-text-animation`,
+          [`transform`, `opacity`],
+          true,
+          500
+      );
+    }
+
+    if (currentScreenId === `prizes`) {
+      this.createAndRunAnimation(
+          `.prizes__title`,
+          500,
+          `active-text-animation`,
+          [`transform`, `opacity`],
+          true,
+          500
+      );
+    }
+
+    if (currentScreenId === `rules`) {
+      this.createAndRunAnimation(
+          `.rules__title`,
+          500,
+          `active-text-animation`,
+          [`transform`, `opacity`],
+          true,
+          500
+      );
+    }
+
+    if (currentScreenId === `game`) {
+      this.createAndRunAnimation(
+          `.game__title`,
+          500,
+          `active-text-animation`,
+          [`transform`, `opacity`],
+          true,
+          500
+      );
     }
   }
 }
