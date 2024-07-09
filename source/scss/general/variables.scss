@@ -20,6 +20,13 @@ $retina-dppx: 1.5dppx;
 
 $index: 1.38871;
 
+$container-size: 80vmin;
+$flamingo-size: calc(#{$container-size} * 0.3);
+$leaf-blue-1-size: calc(#{$container-size} * 0.35);
+$leaf-blue-2-size: calc(#{$container-size} * 0.35);
+$leaf-green-size: calc(#{$container-size} * 0.35);
+$suitcase-size: calc(#{$container-size} * 0.45);
+
 $fast-tr-duration: 0.1s;
 $fast-tr-delay: 0.1s;
 $medium-tr-duration: 0.3s;
