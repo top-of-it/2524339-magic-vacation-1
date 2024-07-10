@@ -58,7 +58,7 @@
       &.leaf-blue-1 {
         width: $leaf-blue-1-size;
         height: $leaf-blue-1-size;
-        background-image: url("/img/module-2/win-suitcase/leaf blue 1.png");
+        background-image: url("#{$img-path-module-2}leaf blue 1.png");
         --x: 70%;
         --y: -10%;
         animation: appear 1.4s ease-out 1.4s forwards,
@@ -69,7 +69,7 @@
       &.leaf-blue-2 {
         width: $leaf-blue-2-size;
         height: $leaf-blue-2-size;
-        background-image: url("/img/module-2/win-suitcase/leaf blue 2.png");
+        background-image: url("#{$img-path-module-2}leaf blue 2.png");
         --x: -70%;
         --y: 30%;
         animation: appear 1.4s ease-out 1.4s forwards,
@@ -80,7 +80,7 @@
       &.leaf-green {
         width: $leaf-green-size;
         height: $leaf-green-size;
-        background-image: url("/img/module-2/win-suitcase/leaf green.png");
+        background-image: url("#{$img-path-module-2}leaf green.png");
         animation: appear 1.4s ease-out 1.4s forwards,
           flutter-leaf-green 1s ease-out 1.4s forwards;
         animation-delay: 0.5s, 0.5s;
@@ -92,7 +92,7 @@
         animation: fly-in $slow-tr-duration $stretch-cb-function forwards;
         width: $suitcase-size;
         height: $suitcase-size;
-        background-image: url("/img/module-2/win-suitcase/suitcase.png");
+        background-image: url("#{$img-path-module-2}suitcase.png");
         --x: 0%;
         --y: 2%;
       }
@@ -103,7 +103,7 @@
         animation-delay: 0s, 0.5s;
         width: $flamingo-size;
         height: $flamingo-size;
-        background-image: url("/img/module-2/win-suitcase/flamingo.png");
+        background-image: url("#{$img-path-module-2}flamingo.png");
         --x: -30%;
         --y: 20%;
       }
