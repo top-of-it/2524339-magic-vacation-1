@@ -1,0 +1,26 @@
+.intro__title,
+.intro__date,
+.slider__item-title,
+.prizes__title,
+.rules__title,
+.game__title {
+  .text__word {
+    display: inline-block;
+    margin: 0 5px;
+    overflow: hidden;
+    > span {
+      opacity: 0;
+      transform: translate3d(0, 1em, 0);
+      display: inline-block;
+    }
+  }
+
+  &.active-text-animation {
+    .text__word {
+      > span {
+        opacity: 1;
+        transform: translate3d(0, 0.15em, 0);
+      }
+    }
+  }
+}

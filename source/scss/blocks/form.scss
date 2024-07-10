@@ -45,11 +45,13 @@
   outline: none;
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
+  transition: transform $slow-tr-duration ease-in-out, opacity $slow-tr-duration ease-in-out;
 
-  .active & {
+  .screen--show & {
     opacity: 1;
     transform: scaleX(1);
+    transition-delay: 1s;
   }
 
   &:focus {
