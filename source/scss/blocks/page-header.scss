@@ -58,7 +58,7 @@
     z-index: 1;
 
     .page-header--menu-opened & {
-      color: $c-dark;
+      color: var(--primary-color);
     }
   }
 
@@ -69,7 +69,7 @@
     z-index: 1;
 
     .page-header--menu-opened & {
-      color: $c-dark;
+      color: var(--primary-color);
     }
   }
 
@@ -105,13 +105,13 @@
     position: absolute;
     right: 0.8rem;
     height: 1px;
-    background-color: $c-dark;
+    background-color: var(--primary-color);
   }
 
   &::before {
     top: 0.9rem;
     width: 1rem;
-    box-shadow: 0 0.6rem 0 0 $c-dark;
+    box-shadow: 0 0.6rem 0 0 var(--primary-color);
   }
 
   &::after {
@@ -150,7 +150,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 4rem 3.5rem;
-    color: $c-dark;
+    color: var(--primary-color);
     background-color: $c-light;
 
     .page-header--menu-opened & {
@@ -169,7 +169,7 @@
     align-items: flex-start;
     padding: 2rem 3.5rem;
     max-height: calc(var(--vh, 1vh) * 100);
-    color: $c-dark;
+    color: var(--primary-color);
     background-color: $c-light;
     overflow-y: auto;
 
@@ -200,13 +200,13 @@
   @media (max-width: $tablet) and (orientation: portrait) {
     margin: auto 0;
     font-size: 2.4rem;
-    color: $c-dark;
+    color: var(--primary-color);
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
     margin: auto 0;
     font-size: 1.4rem;
-    color: $c-dark;
+    color: var(--primary-color);
   }
 
   ul {
@@ -272,11 +272,11 @@
         opacity $slow-tr-duration ease-in-out;
 
       @media (max-width: $tablet) and (orientation: portrait) {
-        background-color: $c-dark;
+        background-color: var(--primary-color);
       }
 
       @media (max-width: $mobile) and (orientation: landscape) {
-        background-color: $c-dark;
+        background-color: var(--primary-color);
       }
     }
 
@@ -294,11 +294,11 @@
 
     &:hover,
     &:focus {
-      color: $c-purple;
+      color: var(--secondary-color);
       outline: none;
 
       &::after {
-        background-color: $c-purple;
+        background-color: var(--secondary-color);
         opacity: 1;
         transform: scaleX(1);
         transform-origin: left;

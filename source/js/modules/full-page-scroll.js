@@ -1,5 +1,6 @@
 import throttle from "lodash/throttle";
 import AccentTypographyBuild from "../utils/text-animation";
+import {getActiveStorySlide, removeStorySlideClasses} from "../utils/story";
 
 export default class FullPageScroll {
   constructor() {
@@ -7,6 +8,7 @@ export default class FullPageScroll {
     this.scrollFlag = true;
     this.timeout = null;
 
+    this.bodyContainer = document.querySelector(`body`);
     this.screenElements = document.querySelectorAll(
         `.screen:not(.screen--result)`
     );
@@ -92,6 +94,8 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
+    removeStorySlideClasses();
+
     this.screenElements.forEach((screen) => {
       screen.classList.add(`screen--hidden`);
       screen.classList.remove(`switched-screen`, `active`);
@@ -101,6 +105,10 @@ export default class FullPageScroll {
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);
     }, 100);
+
+    if (window.location.hash === `#story`) {
+      this.bodyContainer.classList.add(`story-slide${getActiveStorySlide()}`);
+    }
   }
 
   changeActiveMenuItem() {

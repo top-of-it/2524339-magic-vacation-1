@@ -3,6 +3,29 @@ $img-path-module-2: "../img/module-2/win-suitcase/";
 $c-light: #ffffff;
 $c-dark: #5f458c;
 $c-purple: #a67ee5;
+$c-blue-dark: #3f72ee;
+$c-blue-light: #90b8e2;
+
+:root {
+  --primary-color: #{$c-dark};
+  --secondary-color: #{$c-purple};
+}
+.story-slide1 {
+  --primary-color: #{$c-purple};
+  --secondary-color: #{$c-dark};
+}
+.story-slide2 {
+  --primary-color: #{$c-blue-dark};
+  --secondary-color: #{$c-blue-light};
+}
+.story-slide3 {
+  --primary-color: #{$c-blue-light};
+  --secondary-color: #{$c-blue-dark};
+}
+.story-slide4 {
+  --primary-color: #{$c-dark};
+  --secondary-color: #{$c-purple};
+}
 
 $font: "Proxima Nova", "Arial", sans-serif;
 $font-alt: "Radical", "Arial", sans-serif;

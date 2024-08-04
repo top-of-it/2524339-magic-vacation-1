@@ -39,14 +39,15 @@
   font: inherit;
   font-size: 2.4rem;
   line-height: 1.2;
-  color: $c-dark;
+  color: var(--primary-color);
   border: 0;
   border-radius: 3rem;
   outline: none;
   transform: scaleX(0);
   transform-origin: right;
   opacity: 0;
-  transition: transform $slow-tr-duration ease-in-out, opacity $slow-tr-duration ease-in-out;
+  transition: transform $slow-tr-duration ease-in-out,
+    opacity $slow-tr-duration ease-in-out;
 
   .screen--show & {
     opacity: 1;
@@ -55,7 +56,7 @@
   }
 
   &:focus {
-    border: 1px solid $c-purple;
+    border: 1px solid var(--secondary-color);
   }
 
   @media (min-width: $stop-scaling) {
