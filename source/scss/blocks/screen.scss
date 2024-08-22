@@ -66,13 +66,11 @@
   background-color: $c-light;
   z-index: 1;
   transform: translateY(100%);
-  opacity: 0;
   transition: opacity $slow-tr-duration,
     transform $slow-tr-duration $loaded-content-timing-function;
 
-  .loaded-content & {
+  .active & {
     transform: translateY(0);
-    opacity: 1;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {

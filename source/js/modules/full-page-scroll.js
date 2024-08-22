@@ -15,6 +15,7 @@ export default class FullPageScroll {
     this.menuElements = document.querySelectorAll(
         `.page-header__menu .js-menu-link`
     );
+    this.footer = document.querySelector(`.screen__footer`);
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -40,7 +41,7 @@ export default class FullPageScroll {
           return;
         }
 
-        const duration = 300;
+        const duration = 100;
 
         if (
           window.location.hash === `#story` &&
@@ -50,6 +51,8 @@ export default class FullPageScroll {
             .querySelector(`.screen.active`)
             .classList.add(`switched-screen`);
         }
+
+        this.screenElements[this.activeScreen].classList.remove(`active`);
 
         setTimeout(() => {
           window.location.href = currentHref;
@@ -87,9 +90,9 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
+    this.emitChangeDisplayEvent();
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
-    this.emitChangeDisplayEvent();
     this.startTypographyAnimation();
   }
 
@@ -102,9 +105,10 @@ export default class FullPageScroll {
     });
 
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);
-    }, 100);
+    }, this.THROTTLE_TIMEOUT);
 
     if (window.location.hash === `#story`) {
       this.bodyContainer.classList.add(`story-slide${getActiveStorySlide()}`);
