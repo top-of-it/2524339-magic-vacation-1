@@ -1,5 +1,6 @@
 import throttle from "lodash/throttle";
 import AccentTypographyBuild from "../utils/text-animation";
+import {getActiveStorySlide, removeStorySlideClasses} from "../utils/story";
 
 export default class FullPageScroll {
   constructor() {
@@ -7,12 +8,14 @@ export default class FullPageScroll {
     this.scrollFlag = true;
     this.timeout = null;
 
+    this.bodyContainer = document.querySelector(`body`);
     this.screenElements = document.querySelectorAll(
         `.screen:not(.screen--result)`
     );
     this.menuElements = document.querySelectorAll(
         `.page-header__menu .js-menu-link`
     );
+    this.footer = document.querySelector(`.screen__footer`);
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
@@ -38,7 +41,7 @@ export default class FullPageScroll {
           return;
         }
 
-        const duration = 300;
+        const duration = 100;
 
         if (
           window.location.hash === `#story` &&
@@ -48,6 +51,8 @@ export default class FullPageScroll {
             .querySelector(`.screen.active`)
             .classList.add(`switched-screen`);
         }
+
+        this.screenElements[this.activeScreen].classList.remove(`active`);
 
         setTimeout(() => {
           window.location.href = currentHref;
@@ -85,22 +90,29 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
+    this.emitChangeDisplayEvent();
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
-    this.emitChangeDisplayEvent();
     this.startTypographyAnimation();
   }
 
   changeVisibilityDisplay() {
+    removeStorySlideClasses();
+
     this.screenElements.forEach((screen) => {
       screen.classList.add(`screen--hidden`);
       screen.classList.remove(`switched-screen`, `active`);
     });
 
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);
-    }, 100);
+    }, this.THROTTLE_TIMEOUT);
+
+    if (window.location.hash === `#story`) {
+      this.bodyContainer.classList.add(`story-slide${getActiveStorySlide()}`);
+    }
   }
 
   changeActiveMenuItem() {

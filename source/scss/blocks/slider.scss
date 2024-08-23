@@ -164,7 +164,9 @@
   position: relative;
   width: 4rem;
   height: 4rem;
-  color: $c-dark;
+  color: var(--primary-color);
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.5s;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -188,6 +190,9 @@
     width: 1rem;
     height: 2rem;
     pointer-events: none;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out forwards;
+    animation-delay: 0.1s;
 
     @media (min-width: $stop-scaling) {
       width: 10px;
@@ -196,7 +201,7 @@
   }
 
   &:hover {
-    color: $c-purple;
+    color: var(--secondary-color);
 
     &::before {
       width: 112.5%;
@@ -205,11 +210,11 @@
   }
 
   &:focus {
-    color: $c-purple;
+    color: var(--secondary-color);
     outline: none;
 
     &::before {
-      border-color: $c-purple;
+      border-color: var(--secondary-color);
     }
   }
 
@@ -220,14 +225,34 @@
     &::before {
       width: 100%;
       height: 100%;
-      background-color: $c-purple;
-      border-color: $c-purple;
+      background-color: var(--secondary-color);
+      border-color: var(--secondary-color);
     }
   }
 
   &.swiper-button-disabled {
     opacity: 0.5;
     pointer-events: none;
+  }
+
+  &--prev {
+    animation: slideInRotate 0.4s ease-out forwards;
+  }
+
+  &--next {
+    animation: slideInRightRotate 0.4s ease-out forwards;
+  }
+
+  &--prev,
+  &--next {
+    opacity: 0;
+    transform: translateX(-100%) rotate(90deg);
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
   }
 }
 
@@ -243,6 +268,8 @@
   font-weight: 400;
   font-size: 2.4rem;
   line-height: 4rem;
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out forwards;
 
   @media (min-width: $stop-scaling) {
     bottom: 28px;

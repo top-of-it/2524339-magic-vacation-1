@@ -11,7 +11,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: $c-dark;
+    background-color: var(--primary-color);
     opacity: 0;
     transform: translateY(100%);
     transition: transform $medium-tr-duration $loaded-content-timing-function,
@@ -62,17 +62,15 @@
   bottom: 0;
   left: 0;
   right: 0;
-  color: $c-dark;
+  color: var(--primary-color);
   background-color: $c-light;
   z-index: 1;
   transform: translateY(100%);
-  opacity: 0;
   transition: opacity $slow-tr-duration,
     transform $slow-tr-duration $loaded-content-timing-function;
 
-  .loaded-content & {
+  .active & {
     transform: translateY(0);
-    opacity: 1;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -126,7 +124,7 @@
   display: none;
   width: 4rem;
   height: 4rem;
-  color: $c-dark;
+  color: var(--primary-color);
   z-index: 1;
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -165,7 +163,7 @@
   display: none;
   width: 4rem;
   height: 4rem;
-  color: $c-dark;
+  color: var(--primary-color);
   z-index: 1;
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -317,7 +315,7 @@
 }
 
 .screen--story {
-  background-color: $c-dark;
+  background-color: var(--primary-color);
   background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"),
     url("../img/slide3.jpg"), url("../img/slide4.jpg");
   background-repeat: no-repeat;
@@ -331,12 +329,12 @@
 }
 
 .screen--prizes {
-  background-color: $c-dark;
+  background-color: var(--primary-color);
 }
 
 .screen--game {
   position: relative;
-  background-color: $c-dark;
+  background-color: var(--primary-color);
 
   &::before {
     content: "";
@@ -370,7 +368,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: $c-dark;
+  background-color: var(--primary-color);
   opacity: 0;
   pointer-events: none;
 
@@ -381,5 +379,5 @@
 }
 
 .screen--rules {
-  background-color: $c-dark;
+  background-color: var(--primary-color);
 }

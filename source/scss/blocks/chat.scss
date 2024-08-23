@@ -111,7 +111,7 @@
 
     p {
       width: 100%;
-      color: $c-dark;
+      color: var(--primary-color);
       background-color: $c-light;
       word-break: break-word;
     }
@@ -123,7 +123,7 @@
 
     p {
       color: $c-light;
-      background-color: $c-purple;
+      background-color: var(--secondary-color);
       word-break: break-word;
     }
   }
@@ -135,7 +135,7 @@
   align-items: center;
   width: 17rem;
   height: 6rem;
-  background-color: $c-purple;
+  background-color: var(--secondary-color);
   border-radius: 3rem;
 
   @media (min-width: $stop-scaling) {
